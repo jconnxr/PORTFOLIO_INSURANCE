@@ -1,7 +1,7 @@
 import BackToTop from './components/BackToTop'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import AboutSection from './sections/AboutSection'
+import About from './sections/About'
 import Contact from './sections/Contact'
 import FAQ from './sections/FAQ'
 import Hero from './sections/Hero'
@@ -19,7 +19,7 @@ function App() {
         <Hero />
         <Services />
         <Carriers />
-        <AboutSection />
+        <About />
         <HowItWorks />
         <Testimonials />
         <FAQ />
