@@ -22,8 +22,8 @@ function LinkedInIcon({ className }) {
 
 const PHONE_DISPLAY = '(405) 312-3681'
 const PHONE_HREF = 'tel:+14053123681'
-const EMAIL = 'Johnconnercw@icloud.com'
-const EMAIL_HREF = 'mailto:Johnconnercw@icloud.com'
+const EMAIL = 'john@sincereinsurancepartners.com'
+const EMAIL_HREF = 'mailto:john@sincereinsurancepartners.com'
 const FACEBOOK_URL = '#'
 const LINKEDIN_URL = '#'
 

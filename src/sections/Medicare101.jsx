@@ -174,7 +174,7 @@ export default function Medicare101() {
               className="mt-6 cursor-pointer rounded-lg bg-secondary px-8 py-3.5 font-body text-sm font-semibold text-accent sm:text-base"
               {...ctaHoverTap}
             >
-              Talk to John
+              Schedule a Free Consultation
             </motion.button>
           </motion.div>
         </div>

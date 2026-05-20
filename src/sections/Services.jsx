@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import {
   CalendarRange,
+  Clock,
   HeartHandshake,
   Infinity,
   LayoutGrid,
@@ -41,16 +42,22 @@ const medicareServices = [
 
 const lifeInsuranceServices = [
   {
-    icon: HeartHandshake,
-    title: 'Final Expense / Burial Insurance',
+    icon: Clock,
+    title: 'Term Life Insurance',
     description:
-      'Affordable whole life coverage for end-of-life costs, with no medical exam required on many plans. It gives your family a straightforward way to cover funeral expenses and small debts without a complicated application.',
+      'Coverage for a set period (10, 20, or 30 years) at a fixed monthly rate. Ideal for income replacement, mortgage protection, and young families.',
   },
   {
     icon: Infinity,
     title: 'Whole Life Insurance',
     description:
-      'Permanent coverage that builds cash value over time and never expires as long as premiums are paid. It is a strong fit when you want guaranteed protection plus a savings component you can access later in life.',
+      'Permanent coverage that builds cash value over time. Premiums never increase and the policy never expires as long as premiums are paid.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Final Expense Insurance',
+    description:
+      'Simplified issue whole life designed to cover funeral costs and end-of-life expenses. No medical exam required — just a few health questions.',
   },
   {
     icon: TrendingUp,
@@ -111,7 +118,7 @@ export default function Services() {
           className="mt-14 md:mt-20"
         >
           <SubsectionTitle>Life Insurance</SubsectionTitle>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {lifeInsuranceServices.map((service, index) => (
               <ServiceCard
                 key={service.title}
