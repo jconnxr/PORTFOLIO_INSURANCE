@@ -13,9 +13,11 @@ export default function Terms() {
           Independent Broker Services
         </h2>
         <p className="mt-3">
-          John Conner is an independent insurance broker licensed in Oklahoma. This
-          website provides general information about insurance products and services.
-          Nothing on this site constitutes legal, tax, or personalized financial advice.
+          Sincere Insurance Partners is an independent insurance brokerage serving
+          Oklahoma. This website is operated by John Conner, a licensed insurance
+          agent in Oklahoma. The site provides general information about insurance
+          products and services. Nothing on this site constitutes legal, tax, or
+          personalized financial advice.
         </p>
       </section>
 

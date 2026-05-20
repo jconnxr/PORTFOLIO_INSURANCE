@@ -10,6 +10,12 @@ export default function PrivacyPolicy() {
     <LegalPageLayout title="Privacy Policy">
       <p className="text-sm text-text-secondary">Last updated: May 2026</p>
 
+      <p className="mt-4">
+        Sincere Insurance Partners respects your privacy. This policy describes how
+        we handle information collected through this website, which is operated by
+        John Conner, a licensed insurance agent in Oklahoma.
+      </p>
+
       <section>
         <h2 className="font-heading text-xl font-bold text-primary">
           Information We Collect

@@ -17,7 +17,7 @@ export default function CarrierLogoCard({
   suppressEntrance = false,
 }) {
   const className = `flex items-center justify-center rounded-xl bg-white shadow-sm shadow-primary/10 ${
-    compact ? 'h-20 w-[140px] shrink-0 px-4' : 'h-20 px-5'
+    compact ? 'h-24 w-[168px] shrink-0 px-5' : 'h-20 px-5'
   }`
 
   const inner = (

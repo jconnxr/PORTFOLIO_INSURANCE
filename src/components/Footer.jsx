@@ -2,7 +2,7 @@
  * Footer — site-wide contact & legal strip
  *
  * To rebrand for an agency (without changing layout):
- * - Update BROKER_WORDMARK below (e.g. "Conner Insurance Group")
+ * - Update BROKER_WORDMARK below if the agency name changes
  * - Update BROKER_TAGLINE if needed
  * - Update COPYRIGHT_HOLDER to match the legal entity name in the bottom bar
  * - Optionally sync PHONE_DISPLAY / PHONE_HREF with Contact.jsx or move
@@ -14,11 +14,12 @@ import { Link } from 'react-router-dom'
 import { scrollToSection } from '../utils/scrollToSection'
 import { viewportOnce } from '../lib/motionPresets'
 
-const BROKER_WORDMARK = 'John Conner'
+const BROKER_WORDMARK = 'Sincere Insurance Partners'
 const BROKER_TAGLINE =
   'Independent Insurance Broker · Licensed in Oklahoma'
 
-const COPYRIGHT_HOLDER = 'John Conner'
+const COPYRIGHT_HOLDER = 'Sincere Insurance Partners'
+const LICENSED_AGENT = 'John Conner, Licensed Agent'
 const PHONE_DISPLAY = '(405) 312-3681'
 const PHONE_HREF = 'tel:+14053123681'
 const FACEBOOK_URL = '#'
@@ -148,7 +149,7 @@ export default function Footer() {
             {MEDICARE_DISCLOSURE}
           </p>
           <p className="mt-4 text-center font-body text-xs text-accent/65 sm:text-sm">
-            © 2026 {COPYRIGHT_HOLDER}. All rights reserved.
+            © 2026 {COPYRIGHT_HOLDER}. {LICENSED_AGENT}. All rights reserved.
           </p>
         </div>
       </div>

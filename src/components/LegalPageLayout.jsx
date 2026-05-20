@@ -16,7 +16,7 @@ export default function LegalPageLayout({ title, children }) {
             to="/"
             className="font-heading text-lg font-bold text-primary transition-colors hover:text-secondary"
           >
-            John Conner
+            Sincere Insurance Partners
           </Link>
         </div>
       </header>

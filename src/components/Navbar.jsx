@@ -43,6 +43,71 @@ function NavHashLink({ label, sectionId, isActive, onNavigate }) {
   )
 }
 
+function NavbarBrand({ onClick }) {
+  return (
+    <Link
+      to="/"
+      className="flex items-center gap-3"
+      onClick={onClick}
+      aria-label="Sincere Insurance Partners home"
+    >
+      {/* Shield SVG logo mark */}
+      <svg
+        width="38"
+        height="42"
+        viewBox="0 0 38 42"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden
+      >
+        <path
+          d="M19 1L35 8.5V24C35 33.5 27.5 39.5 19 41C10.5 39.5 3 33.5 3 24V8.5L19 1Z"
+          fill="#0A2342"
+          stroke="#ffffff"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M19 5L32 11.5V24C32 31.5 26 36.5 19 38C12 36.5 6 31.5 6 24V11.5L19 5Z"
+          fill="none"
+          stroke="#3B82F6"
+          strokeWidth="1"
+        />
+        <path
+          d="M13.5 17C13.5 14.5 15.5 12.5 18 12.5H20.5C22.5 12.5 24 14 24 16C24 17.8 22.8 19 21 19.5L16.5 20.5C14.5 21 13 22.5 13 24.5C13 26.5 14.8 28.5 17 28.5H20C22.5 28.5 24.5 26.8 24.5 24.5"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+
+      {/* Wordmark */}
+      <div className="flex flex-col leading-none">
+        <span
+          style={{
+            fontWeight: 700,
+            fontSize: '17px',
+            color: '#0A2342',
+            letterSpacing: '0.01em',
+          }}
+        >
+          Sincere
+        </span>
+        <span
+          style={{
+            fontWeight: 500,
+            fontSize: '9px',
+            color: '#3B82F6',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+          }}
+        >
+          Insurance Partners
+        </span>
+      </div>
+    </Link>
+  )
+}
+
 function NavRouteLink({ label, to, isActive }) {
   return (
     <Link
@@ -148,40 +213,17 @@ export default function Navbar() {
         }}
         className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6"
       >
-        {location.pathname === '/' ? (
-          <motion.a
-            layout
-            href="#hero"
+        <motion.div layout transition={{ type: 'spring', stiffness: 400, damping: 32 }}>
+          <NavbarBrand
             onClick={(e) => {
-              e.preventDefault()
-              window.scrollTo({ top: 0, behavior: 'smooth' })
               setMobileOpen(false)
+              if (location.pathname === '/') {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
             }}
-            className="flex flex-col leading-tight"
-          >
-            <motion.span
-              className="font-heading font-bold tracking-tight text-primary"
-              animate={{
-                fontSize: scrolled ? '1.0625rem' : '1.25rem',
-              }}
-              transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-            >
-              John Conner
-            </motion.span>
-            <span className="mt-0.5 hidden font-body text-xs font-light tracking-wide text-secondary lg:block">
-              Medicare · Life · Oklahoma
-            </span>
-          </motion.a>
-        ) : (
-          <Link to="/" className="flex flex-col leading-tight" onClick={() => setMobileOpen(false)}>
-            <span className="font-heading text-xl font-bold tracking-tight text-primary">
-              John Conner
-            </span>
-            <span className="mt-0.5 hidden font-body text-xs font-light tracking-wide text-secondary lg:block">
-              Medicare · Life · Oklahoma
-            </span>
-          </Link>
-        )}
+          />
+        </motion.div>
 
         <ul className="hidden items-center gap-6 lg:flex xl:gap-8">
           {NAV_LINKS.map((link) => (
