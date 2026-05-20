@@ -32,28 +32,11 @@ const lifeCarriers = [
 
 const allCarriers = [...medicareCarriers, ...lifeCarriers]
 
-function CarrierGroup({ title, carriers, startIndex = 0 }) {
-  return (
-    <div>
-      <h3 className="font-heading text-lg font-bold text-primary">{title}</h3>
-      <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {carriers.map((carrier, index) => (
-          <CarrierLogoCard
-            key={carrier.name}
-            {...carrier}
-            index={startIndex + index}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
-
 function CarrierMarquee() {
   const marqueeItems = [...allCarriers, ...allCarriers]
 
   return (
-    <div className="overflow-hidden md:hidden" aria-label="Insurance carriers">
+    <div className="overflow-hidden" aria-label="Insurance carriers">
       <motion.div
         className="flex w-max gap-4 py-1"
         animate={{ x: ['0%', '-50%'] }}
@@ -80,6 +63,26 @@ function CarrierMarquee() {
   )
 }
 
+function CarrierPillCluster({ title, names }) {
+  return (
+    <div>
+      <h3 className="font-heading text-sm font-bold tracking-wide text-primary uppercase sm:text-base">
+        {title}
+      </h3>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {names.map((name) => (
+          <span
+            key={name}
+            className="inline-flex rounded-full border border-primary/15 bg-accent px-3 py-1.5 font-body text-xs font-medium text-primary shadow-sm sm:text-sm"
+          >
+            {name}
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function Carriers() {
   return (
     <section id="carriers" className="bg-carriers px-4 py-16 sm:px-6 md:py-20 lg:py-24">
@@ -94,16 +97,18 @@ export default function Carriers() {
           </p>
         </SectionHeader>
 
-        <div className="mt-10 md:hidden">
+        <div className="mt-10">
           <CarrierMarquee />
         </div>
 
-        <div className="mt-10 hidden space-y-10 md:block">
-          <CarrierGroup title="Medicare" carriers={medicareCarriers} />
-          <CarrierGroup
-            title="Life Insurance"
-            carriers={lifeCarriers}
-            startIndex={medicareCarriers.length}
+        <div className="mt-12 space-y-10 border-t border-primary/10 pt-10">
+          <CarrierPillCluster
+            title="Medicare Carriers"
+            names={medicareCarriers.map((c) => c.name)}
+          />
+          <CarrierPillCluster
+            title="Life Insurance Carriers"
+            names={lifeCarriers.map((c) => c.name)}
           />
         </div>
       </div>
