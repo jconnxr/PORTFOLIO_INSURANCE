@@ -101,11 +101,10 @@ export default function Hero() {
             {trustBadges.map((label) => (
               <li
                 key={label}
-                className="flex items-center gap-2 font-body text-sm"
-                style={{ color: '#94a3b8' }}
+                className="flex items-center gap-2 font-body text-sm text-white"
               >
                 <CheckCircle2
-                  className="h-4 w-4 shrink-0 text-secondary"
+                  className="h-4 w-4 shrink-0 text-white"
                   aria-hidden
                 />
                 {label}
