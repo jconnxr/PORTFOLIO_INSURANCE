@@ -1,34 +1,23 @@
-import BackToTop from './components/BackToTop'
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
-import About from './sections/About'
-import Contact from './sections/Contact'
-import FAQ from './sections/FAQ'
-import Hero from './sections/Hero'
-import HowItWorks from './sections/HowItWorks'
-import Carriers from './sections/Carriers'
-import Resources from './sections/Resources'
-import Services from './sections/Services'
-import Testimonials from './sections/Testimonials'
+import { Route, Routes } from 'react-router-dom'
+import ChatFab from './components/ChatFab'
+import FAQPage from './pages/FAQPage'
+import Home from './pages/Home'
+import Providers from './pages/Providers'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
 
 function App() {
   return (
-    <div className="min-h-svh">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Carriers />
-        <About />
-        <HowItWorks />
-        <Testimonials />
-        <FAQ />
-        <Resources />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/providers" element={<Providers />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
+      </Routes>
+      <ChatFab />
+    </>
   )
 }
 

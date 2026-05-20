@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import FAQAccordion from '../components/FAQAccordion'
 import SectionHeader from '../components/SectionHeader'
 import { easeOut, viewportOnce } from '../lib/motionPresets'
@@ -24,7 +25,15 @@ export default function FAQ() {
           transition={{ duration: 0.5, delay: 0.12, ease: easeOut }}
           className="mt-10 md:mt-12"
         >
-          <FAQAccordion />
+          <FAQAccordion limit={2} />
+          <p className="mt-6 text-center">
+            <Link
+              to="/faq"
+              className="font-body text-sm font-semibold text-secondary transition-colors hover:text-primary"
+            >
+              View all questions →
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>

@@ -1,33 +1,44 @@
 import { motion } from 'framer-motion'
-import {
-  Activity,
-  BadgeDollarSign,
-  Building2,
-  Globe,
-  HeartPulse,
-  Landmark,
-  Plus,
-  Shield,
-  ShieldCheck,
-  Trees,
-} from 'lucide-react'
 import CarrierLogoCard from '../components/CarrierLogoCard'
 import SectionHeader from '../components/SectionHeader'
 
+/* Drop real carrier logo PNG/SVG files into /public/images/carriers/
+   to replace these placeholder cards */
+
 const medicareCarriers = [
-  { name: 'Humana', icon: Building2 },
-  { name: 'UnitedHealthcare', icon: HeartPulse },
-  { name: 'Cigna', icon: Shield },
-  { name: 'Wellcare', icon: Plus },
-  { name: 'Blue Cross Blue Shield of Oklahoma', icon: ShieldCheck },
-  { name: 'Aetna', icon: Activity },
+  { name: 'Humana', src: '/images/carriers/humana.png', alt: 'Humana' },
+  { name: 'UnitedHealthcare', src: '/images/carriers/uhc.png', alt: 'UnitedHealthcare' },
+  { name: 'Cigna', src: '/images/carriers/cigna.png', alt: 'Cigna' },
+  { name: 'Wellcare', src: '/images/carriers/wellcare.png', alt: 'Wellcare' },
+  {
+    name: 'Blue Cross Blue Shield of Oklahoma',
+    src: '/images/carriers/bcbs.png',
+    alt: 'Blue Cross Blue Shield of Oklahoma',
+  },
+  { name: 'Aetna', src: '/images/carriers/aetna.png', alt: 'Aetna' },
 ]
 
 const lifeCarriers = [
-  { name: 'Mutual of Omaha', icon: Landmark },
-  { name: 'Transamerica', icon: Globe },
-  { name: 'Foresters Financial', icon: Trees },
-  { name: 'North American Company', icon: BadgeDollarSign },
+  {
+    name: 'Mutual of Omaha',
+    src: '/images/carriers/mutualofomaha.png',
+    alt: 'Mutual of Omaha',
+  },
+  {
+    name: 'Transamerica',
+    src: '/images/carriers/transamerica.png',
+    alt: 'Transamerica',
+  },
+  {
+    name: 'Foresters Financial',
+    src: '/images/carriers/foresters.png',
+    alt: 'Foresters Financial',
+  },
+  {
+    name: 'North American Company',
+    src: '/images/carriers/northamerican.png',
+    alt: 'North American Company',
+  },
 ]
 
 const allCarriers = [...medicareCarriers, ...lifeCarriers]
@@ -53,7 +64,8 @@ function CarrierMarquee() {
         {marqueeItems.map((carrier, index) => (
           <CarrierLogoCard
             key={`${carrier.name}-${index}`}
-            {...carrier}
+            src={carrier.src}
+            alt={carrier.alt}
             compact
             suppressEntrance
           />

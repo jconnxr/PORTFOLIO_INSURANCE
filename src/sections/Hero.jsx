@@ -50,7 +50,7 @@ export default function Hero() {
             variants={fadeUp}
             className="font-body text-sm font-semibold tracking-wide text-secondary uppercase"
           >
-            Independent Insurance Advisor · All of Oklahoma
+            Independent Insurance Advisor — Serving All of Oklahoma at No Cost to You
           </motion.p>
 
           <motion.h1

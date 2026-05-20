@@ -1,37 +1,27 @@
 import { motion } from 'framer-motion'
 import { easeOut, viewportOnce } from '../lib/motionPresets'
 
+/* Drop real carrier logo PNG/SVG files into /public/images/carriers/
+   to replace these placeholder cards */
+
 /**
- * Placeholder carrier logo card.
- * Swap the icon block for a real SVG, e.g.:
- *   <img src="/logos/humana.svg" alt="Humana" className="h-10 w-auto object-contain" />
+ * Carrier logo card — displays a logo image inside a white rounded card.
+ * Drop matching files into /public/images/carriers/ (see Carriers.jsx for paths).
  */
 export default function CarrierLogoCard({
-  name,
-  icon: Icon,
+  src,
+  alt,
   compact = false,
   index = 0,
   /** When true, skip scroll entrance (e.g. inside infinite marquee) */
   suppressEntrance = false,
 }) {
-  const className = `flex flex-col items-center justify-center rounded-xl bg-accent text-center shadow-sm shadow-primary/5 ${
-    compact ? 'min-h-[88px] w-[140px] shrink-0 px-3 py-4' : 'min-h-[108px] px-4 py-5'
+  const className = `flex items-center justify-center rounded-xl bg-white shadow-sm shadow-primary/10 ${
+    compact ? 'h-20 w-[140px] shrink-0 px-4' : 'h-20 px-5'
   }`
 
   const inner = (
-    <>
-      <Icon
-        className={`text-secondary ${compact ? 'mb-2 h-7 w-7' : 'mb-3 h-9 w-9'}`}
-        aria-hidden
-      />
-      <span
-        className={`font-body font-semibold leading-snug text-primary ${
-          compact ? 'text-xs' : 'text-sm'
-        }`}
-      >
-        {name}
-      </span>
-    </>
+    <img src={src} alt={alt} className="h-full w-full object-contain" />
   )
 
   if (suppressEntrance) {

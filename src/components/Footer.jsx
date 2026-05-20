@@ -10,6 +10,7 @@
  */
 
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { scrollToSection } from '../utils/scrollToSection'
 import { viewportOnce } from '../lib/motionPresets'
 
@@ -23,13 +24,21 @@ const PHONE_HREF = 'tel:+14053123681'
 const FACEBOOK_URL = '#'
 const LINKEDIN_URL = '#'
 
-const FOOTER_LINKS = [
+const FOOTER_SECTION_LINKS = [
   { label: 'Services', id: 'services' },
   { label: 'About', id: 'about' },
   { label: 'How It Works', id: 'how-it-works' },
   { label: 'FAQ', id: 'faq' },
   { label: 'Contact', id: 'contact' },
 ]
+
+const FOOTER_PAGE_LINKS = [
+  { label: 'Privacy Policy', to: '/privacy-policy' },
+  { label: 'Terms of Service', to: '/terms' },
+]
+
+const MEDICARE_DISCLOSURE =
+  'Medicare has neither reviewed nor endorsed this information. We are not affiliated with or endorsed by Medicare or any United States government agency. For official Medicare information, visit Medicare.gov or call 1-800-MEDICARE (1-800-633-4227).'
 
 function FacebookIcon({ className }) {
   return (
@@ -72,18 +81,30 @@ export default function Footer() {
             aria-label="Quick links"
           >
             <ul className="flex list-none flex-col items-center gap-2 p-0 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2">
-              {FOOTER_LINKS.map(({ label, id }) => (
+              {FOOTER_SECTION_LINKS.map(({ label, id }) => (
                 <li key={id}>
                   <a
-                    href={`#${id}`}
+                    href={`/#${id}`}
                     onClick={(e) => {
-                      e.preventDefault()
-                      scrollToSection(id)
+                      if (window.location.pathname === '/') {
+                        e.preventDefault()
+                        scrollToSection(id)
+                      }
                     }}
                     className="font-body text-sm font-medium text-accent/90 transition-colors hover:text-secondary"
                   >
                     {label}
                   </a>
+                </li>
+              ))}
+              {FOOTER_PAGE_LINKS.map(({ label, to }) => (
+                <li key={to}>
+                  <Link
+                    to={to}
+                    className="font-body text-sm font-medium text-accent/90 transition-colors hover:text-secondary"
+                  >
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -123,10 +144,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/15 pt-8">
-          <p className="text-center font-body text-xs leading-relaxed text-accent/65 sm:text-sm">
-            © 2026 {COPYRIGHT_HOLDER}. All rights reserved. | Insurance products are
-            subject to plan availability. This site is not affiliated with or
-            endorsed by Medicare or any government agency.
+          <p className="mx-auto max-w-4xl text-center font-body text-xs leading-relaxed text-accent/60">
+            {MEDICARE_DISCLOSURE}
+          </p>
+          <p className="mt-4 text-center font-body text-xs text-accent/65 sm:text-sm">
+            © 2026 {COPYRIGHT_HOLDER}. All rights reserved.
           </p>
         </div>
       </div>
