@@ -9,6 +9,8 @@ const testimonials = [
     name: 'Mary T.',
     location: 'Oklahoma City, OK',
     stars: 5,
+    avatarSrc: '/images/lifestyle/testimonial-1.jpg',
+    avatarAlt: 'Portrait of Medicare client Mary T.',
   },
   {
     quote:
@@ -16,6 +18,8 @@ const testimonials = [
     name: 'Daniel R.',
     location: 'Edmond, OK',
     stars: 5,
+    avatarSrc: '/images/lifestyle/testimonial-3.jpg',
+    avatarAlt: 'Portrait of life insurance client Daniel R.',
   },
   {
     quote:
@@ -23,6 +27,8 @@ const testimonials = [
     name: 'Susan M.',
     location: 'Broken Arrow, OK',
     stars: 5,
+    avatarSrc: '/images/lifestyle/testimonial-2.jpg',
+    avatarAlt: 'Portrait of insurance client Susan M.',
   },
 ]
 

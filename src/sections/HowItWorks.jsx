@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { LayoutGrid, Phone, ShieldCheck } from 'lucide-react'
 import { Fragment } from 'react'
-import { ctaHoverTap } from '../lib/motionPresets'
+import LifestyleImage from '../components/LifestyleImage'
+import { ctaHoverTap, easeOut, viewportOnce } from '../lib/motionPresets'
 import { scrollToSection } from '../utils/scrollToSection'
 
 const steps = [
@@ -38,7 +39,7 @@ const stepVariants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, ease: easeOut },
   },
 }
 
@@ -84,20 +85,29 @@ export default function HowItWorks() {
           Getting Covered Is Simpler Than You Think
         </motion.h2>
 
-        <motion.ol
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
-          className="mt-14 flex list-none flex-col gap-12 p-0 md:mt-16 md:flex-row md:items-start md:gap-0"
-        >
-          {steps.map((step, index) => (
-            <Fragment key={step.title}>
-              <Step {...step} />
-              {index < steps.length - 1 && <StepConnector />}
-            </Fragment>
-          ))}
-        </motion.ol>
+        <div className="relative mt-14 md:mt-16">
+          <motion.ol
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-80px' }}
+            className="flex list-none flex-col gap-12 p-0 md:flex-row md:items-start md:gap-0 lg:pr-[300px]"
+          >
+            {steps.map((step, index) => (
+              <Fragment key={step.title}>
+                <Step {...step} />
+                {index < steps.length - 1 && <StepConnector />}
+              </Fragment>
+            ))}
+          </motion.ol>
+
+          <LifestyleImage
+            src="/images/lifestyle/senior-couple.jpg"
+            alt=""
+            className="pointer-events-none absolute top-1/2 right-0 hidden w-[280px] -translate-y-1/2 opacity-20 lg:block"
+            imgClassName="h-[380px] w-full rounded-[2rem] object-cover object-center"
+          />
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}

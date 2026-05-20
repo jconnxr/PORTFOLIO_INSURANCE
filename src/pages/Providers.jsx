@@ -13,6 +13,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import LifestyleImage from '../components/LifestyleImage'
 import ProviderContactForm from '../components/ProviderContactForm'
 import { ctaHoverTap, easeOut, viewportOnce } from '../lib/motionPresets'
 import { scrollToSection } from '../utils/scrollToSection'
@@ -110,45 +111,52 @@ export default function Providers() {
       <main>
         {/* Section 1 — Hero */}
         <section className="bg-primary px-4 py-16 sm:px-6 md:py-20 lg:py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: easeOut }}
-            className="mx-auto max-w-3xl text-center"
-          >
-            <p className="font-body text-xs font-semibold tracking-widest text-secondary uppercase sm:text-sm">
-              Healthcare Provider Partnership
-            </p>
-            <h1 className="mt-3 font-heading text-3xl font-extrabold leading-tight text-accent sm:text-4xl lg:text-[2.5rem]">
-              Your Patients Deserve Coverage That Keeps Them in Your Office.
-            </h1>
-            <p className="mt-5 font-body text-base leading-relaxed text-accent/75 sm:text-lg">
-              When a patient&apos;s Medicare plan changes and you&apos;re no longer
-              in-network, they don&apos;t just lose convenience — they lose continuity
-              of care. I help fix that. I&apos;m John Conner, an independent Medicare
-              broker based in Oklahoma City, and I partner with medical and dental
-              offices to make sure their patients stay covered and stay connected to
-              the providers they trust.
-            </p>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
-              <motion.button
-                type="button"
-                onClick={() => scrollToSection('provider-contact')}
-                className="cursor-pointer rounded-lg bg-secondary px-6 py-3.5 font-body text-sm font-semibold text-accent sm:text-base"
-                {...ctaHoverTap}
-              >
-                Schedule a Lunch &amp; Learn
-              </motion.button>
-              <motion.button
-                type="button"
-                onClick={() => scrollToSection('how-it-works-providers')}
-                className="cursor-pointer rounded-lg border-2 border-accent bg-transparent px-6 py-3.5 font-body text-sm font-semibold text-accent transition-colors hover:bg-accent/10 sm:text-base"
-                {...ctaHoverTap}
-              >
-                Learn How It Works
-              </motion.button>
-            </div>
-          </motion.div>
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, ease: easeOut }}
+              className="text-center lg:text-left"
+            >
+              <p className="font-body text-xs font-semibold tracking-widest text-secondary uppercase sm:text-sm">
+                Healthcare Provider Partnership
+              </p>
+              <h1 className="mt-3 font-heading text-3xl font-extrabold leading-tight text-accent sm:text-4xl lg:text-[2.5rem]">
+                Your Patients Deserve Coverage That Keeps Them in Your Office.
+              </h1>
+              <p className="mt-5 font-body text-base leading-relaxed text-accent/75 sm:text-lg">
+                When a patient&apos;s Medicare plan changes and you&apos;re no longer
+                in-network, they don&apos;t just lose convenience — they lose continuity
+                of care. I help fix that. I&apos;m John Conner, an independent Medicare
+                broker based in Oklahoma City, and I partner with medical and dental
+                offices to make sure their patients stay covered and stay connected to
+                the providers they trust.
+              </p>
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start">
+                <motion.button
+                  type="button"
+                  onClick={() => scrollToSection('provider-contact')}
+                  className="cursor-pointer rounded-lg bg-secondary px-6 py-3.5 font-body text-sm font-semibold text-accent sm:text-base"
+                  {...ctaHoverTap}
+                >
+                  Schedule a Lunch &amp; Learn
+                </motion.button>
+                <motion.button
+                  type="button"
+                  onClick={() => scrollToSection('how-it-works-providers')}
+                  className="cursor-pointer rounded-lg border-2 border-accent bg-transparent px-6 py-3.5 font-body text-sm font-semibold text-accent transition-colors hover:bg-accent/10 sm:text-base"
+                  {...ctaHoverTap}
+                >
+                  Learn How It Works
+                </motion.button>
+              </div>
+            </motion.div>
+            <LifestyleImage
+              src="/images/lifestyle/doctor-patient.jpg"
+              alt="Doctor meeting with a patient in a medical office"
+              className="hidden h-[480px] rounded-3xl border-2 border-accent/80 shadow-xl shadow-black/20 lg:block"
+            />
+          </div>
         </section>
 
         {/* Section 2 — The Problem */}
@@ -175,6 +183,12 @@ export default function Providers() {
                 viewport={viewportOnce}
                 transition={{ duration: 0.55, ease: easeOut }}
               >
+                <LifestyleImage
+                  src="/images/lifestyle/consultation.jpg"
+                  alt="Healthcare provider consulting with a patient about coverage"
+                  className="mb-6 h-[280px] rounded-2xl shadow-md shadow-primary/10 sm:h-[300px]"
+                  imgClassName="h-full w-full object-cover object-[18%_28%]"
+                />
                 <h3 className="font-heading text-xl font-bold text-primary">
                   For Medical Offices
                 </h3>
@@ -193,6 +207,11 @@ export default function Providers() {
                 viewport={viewportOnce}
                 transition={{ duration: 0.55, delay: 0.08, ease: easeOut }}
               >
+                <LifestyleImage
+                  src="/images/lifestyle/dental-office.jpg"
+                  alt="Patient receiving care in a modern dental office"
+                  className="mb-6 h-[200px] rounded-2xl shadow-md shadow-primary/10"
+                />
                 <h3 className="font-heading text-xl font-bold text-primary">
                   For Dental Offices
                 </h3>

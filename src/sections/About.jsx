@@ -1,6 +1,8 @@
 // NOTE: Update name and bio to agency name when rebranding
 
 import { motion } from 'framer-motion'
+import { MapPin } from 'lucide-react'
+import LifestyleImage from '../components/LifestyleImage'
 import { easeOut, viewportOnce } from '../lib/motionPresets'
 
 const stats = [
@@ -14,38 +16,24 @@ export default function About() {
     <section id="about" className="bg-accent px-4 py-16 sm:px-6 md:py-20 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-          <motion.div
-            initial={{ opacity: 0, x: -48 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={viewportOnce}
-            transition={{ duration: 0.55, ease: easeOut }}
-            className="relative order-2 min-h-[280px] overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-primary to-[#051525] shadow-lg shadow-primary/20 lg:order-1 lg:min-h-[420px]"
-            aria-hidden
-          >
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.22]"
-              style={{
-                backgroundImage: `
-                  repeating-linear-gradient(
-                    -12deg,
-                    transparent,
-                    transparent 18px,
-                    rgba(255, 255, 255, 0.06) 18px,
-                    rgba(255, 255, 255, 0.06) 19px
-                  ),
-                  repeating-linear-gradient(
-                    78deg,
-                    transparent,
-                    transparent 22px,
-                    rgba(59, 130, 246, 0.08) 22px,
-                    rgba(59, 130, 246, 0.08) 23px
-                  )
-                `,
-              }}
+          <div className="relative order-2 lg:order-1">
+            <LifestyleImage
+              src="/images/headshot.jpg"
+              alt="John Conner, independent Medicare and life insurance broker"
+              className="relative h-[300px] rounded-3xl shadow-lg shadow-primary/20 lg:h-[500px]"
+              imgClassName="h-full w-full object-cover object-[center_18%]"
             />
-            <div className="pointer-events-none absolute -top-1/4 -right-1/4 h-1/2 w-1/2 rounded-full bg-secondary/15 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-1/4 -left-1/4 h-2/5 w-2/5 rounded-full bg-white/5 blur-2xl" />
-          </motion.div>
+            <div
+              className="pointer-events-none absolute inset-0 rounded-3xl bg-primary/15"
+              aria-hidden
+            />
+            <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 rounded-lg bg-accent px-3 py-2 shadow-md shadow-primary/15 sm:bottom-5 sm:left-5 sm:px-4 sm:py-2.5">
+              <MapPin className="h-4 w-4 shrink-0 text-secondary" aria-hidden />
+              <span className="font-body text-xs font-semibold text-primary sm:text-sm">
+                Serving Oklahoma Since 2023
+              </span>
+            </div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, x: 48 }}

@@ -2,6 +2,14 @@ import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import { easeOut, viewportOnce } from '../lib/motionPresets'
 
+/* Replace with real client photos when available */
+
+const avatarFilters = [
+  '',
+  'brightness-[0.92] contrast-[1.08]',
+  'brightness-[1.08] contrast-[0.95] saturate-[0.9]',
+]
+
 function StarRating({ count }) {
   return (
     <div className="flex gap-0.5" aria-label={`${count} out of 5 stars`}>
@@ -16,7 +24,15 @@ function StarRating({ count }) {
   )
 }
 
-export default function TestimonialCard({ quote, name, location, stars, index = 0 }) {
+export default function TestimonialCard({
+  quote,
+  name,
+  location,
+  stars,
+  avatarSrc,
+  avatarAlt,
+  index = 0,
+}) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 32 }}
@@ -40,12 +56,29 @@ export default function TestimonialCard({ quote, name, location, stars, index = 
       </p>
       <div className="mt-6">
         <StarRating count={stars} />
-        <p className="mt-3 font-body text-sm font-semibold text-primary">
-          {name}{' '}
-          <span className="font-normal text-text-secondary">
-            — {location}
-          </span>
-        </p>
+        <div className="mt-3 flex items-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.02 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.5, delay: index * 0.08, ease: easeOut }}
+            className="h-14 w-14 shrink-0 overflow-hidden rounded-full border-2 border-primary"
+          >
+            <img
+              src={avatarSrc}
+              alt={avatarAlt}
+              loading="lazy"
+              decoding="async"
+              className={`h-full w-full object-cover object-center ${avatarFilters[index] ?? ''}`}
+            />
+          </motion.div>
+          <p className="font-body text-sm font-semibold text-primary">
+            {name}{' '}
+            <span className="block font-normal text-text-secondary sm:inline">
+              — {location}
+            </span>
+          </p>
+        </div>
       </div>
     </motion.article>
   )
